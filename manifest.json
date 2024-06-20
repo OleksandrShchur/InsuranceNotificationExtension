@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Insurance Page Refresher",
+    "version": "1.0",
+    "description": "Refreshes the current page every minute and sends a telegram notification in the bot.",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "alarms"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "helpers.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}
